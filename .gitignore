@@ -1,0 +1,9 @@
+HELP.md
+target/
+!**/src/main/**
+!**/src/test/**
+./vscode
+.settings/
+.DS_Store
+.classpath
+.project

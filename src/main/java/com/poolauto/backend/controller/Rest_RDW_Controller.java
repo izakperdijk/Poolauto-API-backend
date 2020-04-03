@@ -17,7 +17,7 @@ public class Rest_RDW_Controller {
     private static final String URL_RDW = "https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken="; //SJ740T
     private static final String URL_RDW_BRANDSTOF = "https://opendata.rdw.nl/resource/8ys7-d773.json?kenteken=";
 
-    public String getRelevantAutoGegevens(String id) throws IOException {
+    public String getRelevantCarInfoJSON(String id) throws IOException {
 
         RestTemplate restTemplate = new RestTemplate();
         ObjectMapper objMapper = new ObjectMapper();

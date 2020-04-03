@@ -6,13 +6,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Auto {
     private String kenteken;
     private String merk;
-    private String handelsbenaming; // model?
-    private String type;
+    private String handelsbenaming;
     private String eerste_kleur;
     private String uitvoering;
     private String inrichting;
     private String zuinigheidslabel;
     private String brandstof_omschrijving;
+    private String brandstofverbruik_gecombineerd;
+    private String catalogusprijs;
+    private String nettomaximumvermogen;
+    private int datum_tenaamstelling;
 
     public String getKenteken() {
         return kenteken;
@@ -28,14 +31,6 @@ public class Auto {
 
     public void setHandelsbenaming(String handelsbenaming) {
         this.handelsbenaming = handelsbenaming;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getMerk() {
@@ -86,18 +81,52 @@ public class Auto {
         this.brandstof_omschrijving = brandstof_omschrijving;
     }
 
+    public String getCatalogusprijs() {
+        return catalogusprijs;
+    }
+
+    public void setCatalogusprijs(String catalogusprijs) {
+        this.catalogusprijs = catalogusprijs;
+    }
+
+    public String getBrandstofverbruik_gecombineerd() {
+        return brandstofverbruik_gecombineerd;
+    }
+
+    public void setBrandstofverbruik_gecombineerd(String brandstofverbruik_gecombineerd) {
+        this.brandstofverbruik_gecombineerd = brandstofverbruik_gecombineerd;
+    }
+
+    public String getNettomaximumvermogen() {
+        return nettomaximumvermogen;
+    }
+
+    public void setNettomaximumvermogen(String nettomaximumvermogen) {
+        this.nettomaximumvermogen = nettomaximumvermogen;
+    }
+
+    public int getDatum_tenaamstelling() {
+        return datum_tenaamstelling;
+    }
+
+    public void setDatum_tenaamstelling(String datum_tenaamstelling) {
+        this.datum_tenaamstelling = Integer.parseInt(datum_tenaamstelling);
+    }
+
     @Override
     public String toString() {
         return '{' +
                 "\"kenteken\"" + ":\"" + kenteken + "\"," +
                 "\"merk\"" + ":\"" + merk + "\"," +
                 "\"model\"" + ":\"" + handelsbenaming + "\"," +
-                "\"type\"" + ":\"" + type + "\"," +
                 "\"kleur\"" + ":\"" + eerste_kleur + "\"," +
                 "\"uitvoering\"" + ":\"" + uitvoering + "\"," +
                 "\"inrichting\"" + ":\"" + inrichting + "\"," +
                 "\"zuinigheidslabel\"" + ":\"" + zuinigheidslabel + "\"," +
-                "\"brandstofomschrijving\"" + ":\"" + brandstof_omschrijving +
+                "\"brandstofomschrijving\"" + ":\"" + brandstof_omschrijving + "\"," +
+                "\"verbruik" + ":\"" + brandstofverbruik_gecombineerd + "\"," +
+                "\"cataloguswaarde\"" + ":\"" + catalogusprijs + "\"," +
+                "\"nettomaximumvermogen\"" + ":\"" + nettomaximumvermogen +
                 "\"}";
     }
     

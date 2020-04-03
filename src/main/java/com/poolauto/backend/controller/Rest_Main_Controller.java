@@ -16,8 +16,8 @@ public class Rest_Main_Controller {
     Rest_RDW_Controller rest_rdw_controller = new Rest_RDW_Controller();
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String getRelevantCarInfo(@PathVariable("id") String id) throws IOException {
-        return rest_rdw_controller.getRelevantAutoGegevens(id);
+    public String getRDWInfoOnID(@PathVariable("id") String id) throws IOException {
+        return rest_rdw_controller.getRelevantCarInfoJSON(id);
     }
 
 }

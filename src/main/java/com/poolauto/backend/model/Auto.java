@@ -124,7 +124,7 @@ public class Auto {
                 "\"inrichting\"" + ":\"" + inrichting + "\"," +
                 "\"zuinigheidslabel\"" + ":\"" + zuinigheidslabel + "\"," +
                 "\"brandstofomschrijving\"" + ":\"" + brandstof_omschrijving + "\"," +
-                "\"verbruik" + ":\"" + brandstofverbruik_gecombineerd + "\"," +
+                "\"verbruik\"" + ":\"" + brandstofverbruik_gecombineerd + "\"," +
                 "\"cataloguswaarde\"" + ":\"" + catalogusprijs + "\"," +
                 "\"nettomaximumvermogen\"" + ":\"" + nettomaximumvermogen +
                 "\"}";

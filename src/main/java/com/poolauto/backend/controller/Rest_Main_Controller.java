@@ -6,13 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 public class Rest_Main_Controller {
 
-    @Autowired
     Rest_RDW_Controller rest_rdw_controller = new Rest_RDW_Controller();
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

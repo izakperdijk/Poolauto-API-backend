@@ -15,7 +15,7 @@ public class Auto {
     private String brandstofverbruik_gecombineerd;
     private String catalogusprijs;
     private String nettomaximumvermogen;
-    private int datum_tenaamstelling;
+    private String datum_tenaamstelling;
 
     public String getKenteken() {
         return kenteken;
@@ -105,29 +105,35 @@ public class Auto {
         this.nettomaximumvermogen = nettomaximumvermogen;
     }
 
-    public int getDatum_tenaamstelling() {
+    public String getDatum_tenaamstelling() {
         return datum_tenaamstelling;
     }
 
     public void setDatum_tenaamstelling(String datum_tenaamstelling) {
-        this.datum_tenaamstelling = Integer.parseInt(datum_tenaamstelling);
+        this.datum_tenaamstelling = datum_tenaamstelling;
     }
 
     @Override
     public String toString() {
         return '{' +
                 "\"kenteken\"" + ":\"" + kenteken + "\"," +
-                "\"merk\"" + ":\"" + merk + "\"," +
-                "\"model\"" + ":\"" + handelsbenaming + "\"," +
-                "\"kleur\"" + ":\"" + eerste_kleur + "\"," +
+                "\"merk\"" + ":\"" + Util.capitalize(merk) + "\"," +
+                "\"model\"" + ":\"" + Util.capitalize(handelsbenaming) + "\"," +
+                "\"kleur\"" + ":\"" + Util.capitalize(eerste_kleur) + "\"," +
                 "\"uitvoering\"" + ":\"" + uitvoering + "\"," +
-                "\"inrichting\"" + ":\"" + inrichting + "\"," +
+                "\"inrichting\"" + ":\"" + Util.capitalize(inrichting) + "\"," +
                 "\"zuinigheidslabel\"" + ":\"" + zuinigheidslabel + "\"," +
-                "\"brandstofomschrijving\"" + ":\"" + brandstof_omschrijving + "\"," +
+                "\"brandstofomschrijving\"" + ":\"" + Util.capitalize(brandstof_omschrijving) + "\"," +
                 "\"verbruik\"" + ":\"" + brandstofverbruik_gecombineerd + "\"," +
                 "\"cataloguswaarde\"" + ":\"" + catalogusprijs + "\"," +
                 "\"nettomaximumvermogen\"" + ":\"" + nettomaximumvermogen +
                 "\"}";
     }
     
+}
+
+class Util {
+    static String capitalize(String s) {
+        return s.substring(0,1).toUpperCase() + s.substring(1).toLowerCase();
+    }
 }

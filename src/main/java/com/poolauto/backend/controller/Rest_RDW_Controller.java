@@ -6,6 +6,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,30 +16,39 @@ import com.poolauto.backend.model.Auto;
 @Service
 public class Rest_RDW_Controller {
 
-    private static final String URL_RDW = "https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken="; //SJ740T
-    private static final String URL_RDW_FUEL = "https://opendata.rdw.nl/resource/8ys7-d773.json?kenteken=";
+    private final ResourceBundle rdw = ResourceBundle.getBundle("rdw");
+    private final String URL_RDW = rdw.getString("std");
+    private final String URL_RDW_FUEL = rdw.getString("fuel");
 
     public String getRelevantCarInfoJSON(String id) throws IOException {
 
+        // Validate input format and convert to uppercase
+        id = forceFormat(id);
+
         RestTemplate restTemplate = new RestTemplate();
         ObjectMapper objMapper = new ObjectMapper();
-    
-        // Get basic info
+
+        // Get standard data
         ResponseEntity<String> response = restTemplate.getForEntity(URL_RDW+id, String.class);
-        if (!response.hasBody()) throw new IOException("No response body for "+URL_RDW+id);
         Auto[] auto = objMapper.readValue(Objects.requireNonNull(response.getBody()), Auto[].class);
-        if (auto.length != 1) throw new IOException("No data available for kenteken "+id);
 
-        // Extended info
+        // Get fuel data
         ResponseEntity<String> response_fuel = restTemplate.getForEntity(URL_RDW_FUEL+id, String.class);
-        if (!response_fuel.hasBody()) throw new IOException("No response body for "+URL_RDW_FUEL+id);
         JsonNode jsonr = objMapper.readTree(Objects.requireNonNull(response_fuel.getBody()));
-        if (jsonr.size() != 1) throw new IOException("No fuel data available for kenteken "+id);
 
-        // Update Auto object with extended info
+        // Update Auto object with fuel data
         ObjectReader reader = objMapper.readerForUpdating(auto[0]);
         Auto updated_auto = reader.readValue(jsonr.get(0));
 
         return updated_auto.toString();
     }
+
+    private String forceFormat(String input) {
+        final String pattern = "[a-zA-Z0-9]{6}";
+        if (!input.matches(pattern)) {
+            throw new IllegalArgumentException();
+        }
+        return input.toUpperCase();
+    }
+
 } // java -jar ./target/backend-0.0.1-SNAPSHOT.jar

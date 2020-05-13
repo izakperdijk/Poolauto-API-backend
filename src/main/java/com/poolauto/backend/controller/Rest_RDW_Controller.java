@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.poolauto.backend.model.Auto;
+import static com.poolauto.backend.utility.Util.forceFormat;
 
 @Service
 public class Rest_RDW_Controller {
@@ -41,14 +42,6 @@ public class Rest_RDW_Controller {
         Auto updated_auto = reader.readValue(jsonr.get(0));
 
         return updated_auto.toString();
-    }
-
-    private String forceFormat(String input) {
-        final String pattern = "[a-zA-Z0-9]{6}";
-        if (!input.matches(pattern)) {
-            throw new IllegalArgumentException();
-        }
-        return input.toUpperCase();
     }
 
 } // java -jar ./target/backend-0.0.1-SNAPSHOT.jar

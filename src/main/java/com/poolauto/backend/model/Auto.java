@@ -2,10 +2,8 @@ package com.poolauto.backend.model;
 
 import static com.poolauto.backend.utility.Util.capitalizeWord;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Auto {

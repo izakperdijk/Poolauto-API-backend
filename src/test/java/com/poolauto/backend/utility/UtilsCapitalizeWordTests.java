@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static com.poolauto.backend.utility.Util.capitalizeWord;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Test_Utils_capitalizeWord {
+public class UtilsCapitalizeWordTests {
 
     @Test
     public void capitalizeVoornaam() {

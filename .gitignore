@@ -6,6 +6,10 @@ target/
 .settings/
 .DS_Store
 *.puml
+/codecoverage
+/mappings
+/__files
+wiremock-standalone-2.26.3.jar
 
 ### STS ###
 .apt_generated

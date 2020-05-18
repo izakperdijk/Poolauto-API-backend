@@ -6,7 +6,7 @@ import static com.poolauto.backend.utility.Util.forceFormat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class Test_Utils_forceFormat { // Illegal format on input
+public class UtilsForceFormatTests { // Illegal format on input
 
     @Test // To uppercase
     public void forceCapitalization() {

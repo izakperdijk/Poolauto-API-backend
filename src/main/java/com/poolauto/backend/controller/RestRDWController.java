@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.poolauto.backend.model.Auto;
-import static com.poolauto.backend.utility.Util.*;
 
 @Service
 public class RestRDWController {
@@ -19,12 +18,8 @@ public class RestRDWController {
     public String getRelevantCarInfoJSON(String id) throws IOException {
 
         // Set URLs according to external property configuration file
-        setProperties();
         String urlRdwStd = System.getProperty("std");
         String urlRdwFuel = System.getProperty("fuel");
-
-        // Validate input format and convert to uppercase
-        id = forceFormat(id);
 
         RestTemplate restTemplate = new RestTemplate();
         ObjectMapper objMapper = new ObjectMapper();

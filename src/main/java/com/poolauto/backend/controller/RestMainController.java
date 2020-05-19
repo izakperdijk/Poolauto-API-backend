@@ -4,6 +4,9 @@ import org.springframework.web.bind.annotation.*;
 
 import com.poolauto.backend.exception.*;
 
+import static com.poolauto.backend.utility.Util.enforceFormat;
+import static com.poolauto.backend.utility.Util.setProperties;
+
 @RestController
 public class RestMainController {
 
@@ -12,7 +15,8 @@ public class RestMainController {
     @GetMapping(value = "/{id}")
     public String getRDWInfoOnID(@PathVariable("id") String id) {
         try {
-            return restRdwController.getRelevantCarInfoJSON(id);
+            setProperties();
+            return restRdwController.getRelevantCarInfoJSON(enforceFormat(id));
         } catch (IllegalArgumentException e) {
             throw new IllegalFormatException(id, e);
         } catch (IndexOutOfBoundsException e) {

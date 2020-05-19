@@ -9,17 +9,17 @@ import lombok.Setter;
 public class Auto {
 
     private String kenteken;
-    private String merk;
-    private String handelsbenaming;
-    private String eerste_kleur;
-    private String uitvoering;
-    private String inrichting;
-    private String zuinigheidslabel;
-    private String brandstof_omschrijving;
-    private String brandstofverbruik_gecombineerd;
-    private String catalogusprijs;
-    private String nettomaximumvermogen;
-    private String datum_tenaamstelling;
+    private String merk = "";
+    private String handelsbenaming = "";
+    private String eerste_kleur = "";
+    private String uitvoering = "";
+    private String inrichting = "";
+    private String zuinigheidslabel = "";
+    private String brandstof_omschrijving = "";
+    private String brandstofverbruik_gecombineerd = "";
+    private String catalogusprijs = "";
+    private String nettomaximumvermogen = "";
+    private String datum_tenaamstelling = "";
 
     @Override
     public String toString() {

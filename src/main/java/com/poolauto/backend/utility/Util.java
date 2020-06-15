@@ -1,9 +1,5 @@
 package com.poolauto.backend.utility;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,17 +26,4 @@ public interface Util {
         return s.substring(0,1).toUpperCase() + s.substring(1).toLowerCase();
     }
 
-    /* Get and set URL properties (RDW / Wiremock) */
-    static void setProperties() throws IOException {
-
-        File parentDir = new File(System.getProperty("user.dir")).getParentFile();
-
-        FileInputStream propFile = new FileInputStream(
-                parentDir + "/poolautoAPI.properties"
-        );
-
-        Properties p = new Properties(System.getProperties());
-        p.load(propFile);
-        System.setProperties(p);
-    }
 }

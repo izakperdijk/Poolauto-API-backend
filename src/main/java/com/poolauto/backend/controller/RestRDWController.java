@@ -18,8 +18,8 @@ public class RestRDWController {
     public String getRelevantCarInfoJSON(String id) throws IOException {
 
         // Set URLs according to external property configuration file
-        String urlRdwStd = System.getProperty("std");
-        String urlRdwFuel = System.getProperty("fuel");
+        String urlRdwStd = System.getProperty("rdw.std");
+        String urlRdwFuel = System.getProperty("rdw.fuel");
 
         RestTemplate restTemplate = new RestTemplate();
         ObjectMapper objMapper = new ObjectMapper();

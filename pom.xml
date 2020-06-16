@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.poolauto</groupId>
-	<artifactId>backend</artifactId>
+	<artifactId>poolauto-api-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>backend</name>
+	<name>poolauto-api-backend</name>
 	<description>Backend for Poolauto API</description>
 
 	<properties>

@@ -1,5 +1,6 @@
 package com.poolauto.backend.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.poolauto.backend.exception.*;
 
@@ -11,7 +12,7 @@ public class RestMainController {
     private final RestRDWController restRdwController = new RestRDWController();
 
     @GetMapping(value = "/{id}")
-    public String getRDWInfoOnID(@PathVariable("id") String id) {
+    public ResponseEntity<String> getRDWInfoOnID(@PathVariable("id") String id) {
         try {
             return restRdwController.getRelevantCarInfoJSON(enforceFormat(id));
         } catch (IllegalArgumentException e) {

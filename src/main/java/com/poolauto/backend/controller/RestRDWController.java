@@ -1,5 +1,6 @@
 package com.poolauto.backend.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -15,10 +16,10 @@ import com.poolauto.backend.model.Auto;
 @Service
 public class RestRDWController {
 
-    public String getRelevantCarInfoJSON(String id) throws IOException {
+    public ResponseEntity<String> getRelevantCarInfoJSON(String id) throws IOException {
 
         // Set URLs according to external property configuration file
-        String urlRdwStd = System.getProperty("rdw.std");
+        String urlRdwStd  = System.getProperty("rdw.std");
         String urlRdwFuel = System.getProperty("rdw.fuel");
 
         RestTemplate restTemplate = new RestTemplate();
@@ -36,7 +37,7 @@ public class RestRDWController {
         ObjectReader reader = objMapper.readerForUpdating(carArr[0]);
         Auto car = reader.readValue(jsonr.get(0));
 
-        return car.toString();
+        return new ResponseEntity<>(car.toString(), HttpStatus.OK);
     }
 
 }

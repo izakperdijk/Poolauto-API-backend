@@ -7,6 +7,7 @@ import com.poolauto.backend.exception.*;
 import static com.poolauto.backend.utility.Util.enforceFormat;
 
 @RestController
+@CrossOrigin
 public class RestMainController {
 
     private final RestRDWController restRdwController = new RestRDWController();
